@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Prompt Enhancer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>📚 Add to Knowledge Base</h2>
+            <p>Add new documents to your local vector DB.</p>
+            <textarea id="doc-textarea" placeholder="Enter document text here..."></textarea>
+            <button id="add-doc-button">Add Document</button>
+            <div id="sidebar-status"></div>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>🤖 RAG Prompt Enhancer</h1>
+                <p>An interface to enrich prompts using your local memory service.</p>
+            </header>
+            
+            <section class="prompt-section">
+                <h2>Enter Raw Prompt</h2>
+                <textarea id="prompt-textarea" placeholder="e.g., How can I run python functions concurrently for I/O tasks?"></textarea>
+                <button id="enhance-button">Enhance Prompt ✨</button>
+            </section>
+            
+            <section class="results-section">
+                <h2>Process Log & Results</h2>
+                <div id="status-container" class="status-log"></div>
+                <pre><code id="result-container"></code></pre>
+            </section>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

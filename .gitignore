@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# --- Project Specific ---
+
+# 敏感配置文件 (非常重要!)
+# 我们将创建一个示例文件来代替它
+config/llm_config.json
+
+# 本地数据库文件
+vector_db_data/
+chroma_db/
+*.sqlite
+
+# 测试报告和缓存
+.pytest_cache/
+htmlcov/
+.coverage
