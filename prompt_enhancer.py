@@ -5,22 +5,14 @@ import pathlib
 import sys
 from typing import Dict, Any
 
-# --- 动态配置加载 ---
-try:
-    config_path = pathlib.Path(__file__).parent / "config" / "llm_config.json"
-    with open(config_path, 'r') as f:
-        config = json.load(f)
-    
-    chat_llm_config = config['chat_llm']
-    ORCHESTRATOR_LLM_CONFIG = {
-        "base_url": chat_llm_config['base_url'],
-        "api_key": chat_llm_config['api_key'],
-        "model_name": chat_llm_config['model_name']
-    }
-except (FileNotFoundError, KeyError) as e:
-    print(f"❌ Error: Could not load configuration from '{config_path}'. {e}", file=sys.stderr)
-    print("   Please ensure 'config/llm_config.json' exists and has a valid 'chat_llm' section.", file=sys.stderr)
-    sys.exit(1)
+from core.config import settings
+
+# 使用全局 settings（支持环境变量覆盖）
+ORCHESTRATOR_LLM_CONFIG = {
+    'base_url': settings.chat_llm.base_url,
+    'api_key': settings.chat_llm.api_key,
+    'model_name': settings.chat_llm.model_name,
+}
 
 # 配置微服务地址
 MICROSERVICE_URL = "http://127.0.0.1:8000"
